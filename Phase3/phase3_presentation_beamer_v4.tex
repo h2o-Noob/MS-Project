@@ -1,0 +1,281 @@
+% phase3_presentation_beamer_v3.tex -- E0240 Project 1, Phase-3 presentation.
+% Final polish of v2: semantic 4-color system (teal / brick / indigo / navy on
+% white), sans body + CM math, footer reduced to a subtle page number,
+% closing slide retitled "Key takeaways" and ending "Thank you."
+% Scientific source of truth (frozen): PHASE3_EVIDENCE_PACK.md, results/*.csv.
+% Build: pdflatex phase3_presentation_beamer_v3.tex  (run twice).
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{tgheros}
+\usefonttheme{professionalfonts}
+\usepackage{booktabs}
+
+\definecolor{InkColor}{HTML}{22303C}   % primary dark: navy text/headings
+\definecolor{PrColor}{HTML}{14606B}    % teal: model, validation, deterministic
+\definecolor{SecColor}{HTML}{A8492E}   % brick: geometric service, variability
+\definecolor{IndColor}{HTML}{4A4E8F}   % indigo: batching (B, tau, E3)
+\definecolor{MutedColor}{HTML}{5F646B} % soft gray: secondary text
+\definecolor{RuleColor}{HTML}{D9DDE1}
+\definecolor{FootColor}{HTML}{9AA3AA}
+\definecolor{ObsColor}{HTML}{8A4A2E}   % muted red-brown: the S=2 caveat
+\definecolor{BrickLtColor}{HTML}{C98A74} % light brick: geometric, c=2
+
+\setbeamercolor{structure}{fg=PrColor}
+\setbeamercolor{normal text}{fg=InkColor, bg=white}
+\setbeamercolor{frametitle}{fg=InkColor}
+\setbeamercolor{title}{fg=InkColor}
+\setbeamercolor{footline}{fg=FootColor, bg=white}
+\setbeamercolor{itemize item}{fg=PrColor}
+\setbeamercolor{enumerate item}{fg=PrColor}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
+\setbeamerfont{enumerate item}{size=\large, series=\bfseries}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\colorlet{RuleAccent}{PrColor}
+\setbeamertemplate{frametitle}{%
+  \vskip 1.1ex%
+  {\usebeamerfont{frametitle}\insertframetitle}\vskip 0.7ex%
+  {\color{RuleAccent}\rule{\dimexpr\textwidth-36pt\relax}{0.8pt}}\vskip 0.4ex%
+}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.93\paperwidth,ht=2.4ex,dp=1.1ex]{footline}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.07\paperwidth,ht=2.4ex,dp=1.1ex,rightskip=0.3cm]{footline}%
+      \scriptsize\hfill\insertframenumber
+    \end{beamercolorbox}}%
+}
+\setbeamersize{text margin left=0.75cm, text margin right=0.75cm}
+
+\graphicspath{{figures/}}
+
+\begin{document}
+
+% ---------- 1. title ----------
+\begin{frame}[plain]
+  \centering
+  {\small\textcolor{MutedColor}{E0240: Modeling and Simulation}}\\[0.55cm]
+  {\LARGE\bfseries\textcolor{InkColor}{A Queueing-Network Simulator for an\\[0.12cm] LLM Inference Serving Pipeline}}\\[0.42cm]
+  {\color{PrColor}\rule{0.26\textwidth}{1pt}}\\[0.42cm]
+  {\normalsize\itshape\textcolor{MutedColor}{Phase-3 final presentation: what the validated simulator revealed.}}\\[0.62cm]
+  {\normalsize\textbf{Vaibhav Mahore}\ \ \textperiodcentered\ \ SR No.\ 23631\ \ \textperiodcentered\ \ UG BTech (M\&C)}\\[0.14cm]
+  {\small\textcolor{MutedColor}{Department of Computer Science and Automation\\ Indian Institute of Science, Bangalore}}\\[0.3cm]
+  {\small\itshape\textcolor{MutedColor}{Group members: [Name (SR No.)] \textperiodcentered\ [Name (SR No.)]}}\\[0.3cm]
+  {\small\textcolor{MutedColor}{November 2026}}
+\end{frame}
+
+% ---------- 2. problem ----------
+\begin{frame}{Why model LLM serving as a queueing network?}
+  \begin{itemize}
+    \item Requests wait at admission and tokenization.
+    \item Requests wait for batching.
+    \item Requests wait for GPU service.
+  \end{itemize}
+  \vfill
+  \centering
+  {\normalsize\textcolor{MutedColor}{the scheduler knobs}}\quad{\Large\textcolor{PrColor}{$(B,\ \tau,\ c)$}}
+  \vfill
+  \raggedright
+  {\color{PrColor}\bfseries\itshape These knobs change where requests wait.}
+  \smallskip
+
+  A validated simulator lets us study these trade-offs reproducibly.
+\end{frame}
+
+% ---------- 3. model ----------
+\begin{frame}{The three-stage queueing model}
+  \begin{columns}[T]
+    \begin{column}{195pt}
+      {\color{PrColor}\bfseries Q1, admission and tokenization.}\\
+      Geo/D/1, one server, deterministic service.
+      \smallskip
+
+      {\color{IndColor}\bfseries Q2, batching scheduler.}\\
+      FCFS; a batch is released when $B$ requests have collected, or when the oldest has waited $\tau$ cycles. $B = 1$: pass-through.
+      \smallskip
+
+      {\color{SecColor}\bfseries Q3, GPU workers.}\\
+      $c$ parallel workers; one worker serves one batch, all its requests share the duration.
+    \end{column}
+    \begin{column}{172pt}
+      \centering
+      {\large $S_1 = 2$ cycles}
+      \medskip
+
+      {\large\[
+        S_{\mathrm{batch}}(b) = \left\lceil S_3 + \delta\,(b-1) \right\rceil
+      \]}
+      {\large\[
+        \rho_3 = \frac{\lambda_{\mathrm{batch}}\, E[S_{\mathrm{batch}}]}{c} < 1
+      \]}
+      \smallskip
+      {\small $B = 1$: \ $\rho_3 = \lambda_3\, E[S_3] / c < 1$}
+      \smallskip
+      {\scriptsize\textcolor{MutedColor}{$\lambda_{\mathrm{batch}}$: Q2 batch-dispatch rate. Single-server nodes: $\rho_i = \lambda_i E[S_i] < 1$.}}
+    \end{column}
+  \end{columns}
+  \vfill
+  \centering\small Bernoulli($\lambda$) arrivals; one cycle = one scheduler tick.
+\end{frame}
+
+% ---------- 4. simulator ----------
+\begin{frame}{Simulator and cycle semantics}
+  \begin{enumerate}
+    \item \textbf{\textcolor{PrColor}{Arrival}} \; Bernoulli($\lambda$) request joins the queue
+    \item \textbf{\textcolor{PrColor}{Service countdown}} \; busy workers count down or complete
+    \item \textbf{\textcolor{PrColor}{Completion and routing}} \; finished work moves downstream
+    \item \textbf{\textcolor{PrColor}{Dispatch}} \; idle servers take the head of the line
+    \item \textbf{\textcolor{PrColor}{Counters}} \; occupancy, delay, utilization update
+  \end{enumerate}
+  \vfill
+  One scheduler tick = one simulation cycle: fixed-increment time advance, the course's cycle-driven scheme. Same-cycle immediate access: a request arriving at cycle $t$ can enter service at cycle $t$.
+\end{frame}
+
+% ---------- 5. analytical validation ----------
+\begin{frame}{Validation against analytical queueing models}
+  \centering
+  {\large\[
+    \rho = \lambda S
+    \qquad\qquad
+    L_q = \lambda W_q
+  \]}
+  {\large\[
+    W_q = \frac{\rho\,(S-1)}{2\,(1-\rho)}
+    \qquad\qquad
+    L_q^{\mathrm{Geo/Geo/1}} = \frac{2\lambda^2}{1 - 2\lambda}
+  \]}
+  \vfill
+  \raggedright
+  Anchors: single-station configurations of the engine are exactly our validated single-queue simulators.
+  \smallskip
+
+  {\small The $W_q$ expression is the general one for our slotted convention; extending the sweep to $S = 3$ showed that the $L_q$ form we had initially carried over is {\color{ObsColor}specific to $S = 2$}.}
+  \smallskip
+
+  {\small\textcolor{MutedColor}{Criterion: worst relative error below $1\%$ at $10^7$ cycles: $\lambda \le 0.45$ for $S = 2$, $\lambda \le 0.30$ for $S = 3$; lengths $10^3$, $10^5$, $10^7$.}}
+\end{frame}
+
+% ---------- 6. validation results ----------
+\begin{frame}{Validation results}
+  \begin{columns}[T]
+    \begin{column}{150pt}
+      \footnotesize
+      Geo/D/1, $S = 2$:\ \ {\color{PrColor}\bfseries\large 0.75\%}\medskip
+
+      Geo/D/1, $S = 3$:\ \ {\color{PrColor}\bfseries\large 0.46\%}\smallskip
+
+      Geo/Geo/1, mean 2:\ \ {\color{PrColor}\bfseries\large 0.94\%}\smallskip
+
+      Factor-2 ratio:\ \ {\color{PrColor}\bfseries\large 0.95\%} from 2
+      \smallskip
+
+      \scriptsize\textcolor{MutedColor}{Network accounting: $3.4\times 10^{-7}$. Utilization and throughput vs.\ load: $0.11\%$. $W = L_q/\lambda$ per node: machine precision. $\lambda = 0.49$: informational.}
+    \end{column}
+    \begin{column}{218pt}
+      \centering
+      \includegraphics[width=216pt]{bf2_e1_convergence.pdf}
+
+      {\scriptsize\textcolor{MutedColor}{Convergence onto the analytical curve: $7.6\% \to 1.8\% \to 0.46\%$ at $\lambda = 0.3$.}}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------- 7. E2 variability ----------
+\colorlet{RuleAccent}{SecColor}
+\begin{frame}{E2: service variability under load}
+  \begin{columns}[T]
+    \begin{column}{0.66\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{bf2_e2_delay.pdf}
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \small
+      At $\lambda = 0.45$, $c = 1$:
+      \begin{itemize}
+        \item deterministic: $8.519$ cycles
+        \item geometric: $15.350$ cycles
+        \item increase: $+6.831$ cycles ({\color{SecColor}\bfseries $80.2\%$})
+      \end{itemize}
+      \medskip
+      The premium grows with load: $2.1\%$ at $\lambda = 0.05$, $139.9\%$ at $\lambda = 0.49$.
+    \end{column}
+  \end{columns}
+  \vfill
+  \centering\itshape Service variability becomes costly as load approaches saturation.
+\end{frame}
+
+% ---------- 8. E2 parallelism ----------
+\begin{frame}{E2: parallelism and a structural result}
+  \centering
+  {\large\[
+    \text{\textcolor{PrColor}{det., $c=1$}}:\ 8.519
+    \qquad\quad
+    \text{\textcolor{SecColor}{geo., $c=1$}}:\ 15.350
+  \]}
+  {\large\[
+    \text{\textcolor{BrickLtColor}{geo., $c=2$}}:\ 8.549
+    \qquad\quad
+    \Delta = 0.03 \text{ vs det.}
+  \]}
+  {\small\textcolor{MutedColor}{$\lambda = 0.45$; paired arrival streams.}}
+  \vfill
+  \raggedright
+  {\color{PrColor}\bfseries Structural result.}\ \ With deterministic $S_1 = S_3 = 2$ and pass-through Q2, Q1 departures are at least two cycles apart, so Q3 never accumulates a queue: $L_{q,Q3} = 0$ in all 22 deterministic rows.
+  \medskip
+
+  {\small\textcolor{MutedColor}{Tested configuration only.}}
+\end{frame}
+\colorlet{RuleAccent}{PrColor}
+
+% ---------- 9. E3 trade-off ----------
+\colorlet{RuleAccent}{IndColor}
+\begin{frame}{E3: the batching trade-off}
+  \centering
+  $\lambda = 0.3$, \qquad $\delta = 0.5$\\[0.1cm]
+  $B \in \{1,2,4,8,16\}$, \quad $\tau \in \{2,8\}$
+  \smallskip
+
+  \includegraphics[width=250pt]{bf3_e3_tradeoff.pdf}
+
+  {\scriptsize\itshape Larger batches improve GPU utilization, but Q2 waiting dominates at this load.}
+  {\scriptsize\textcolor{MutedColor}{$B = 1$: utilization $0.60$, Q2 wait $0.75$ cycles $\;\rightarrow\;$ $B = 8$, $\tau = 8$: utilization $0.31$, wait $5.39$ cycles; batch service $2.0 \rightarrow 3.4$ cycles. Length robustness: $10^6$ vs $10^7$ runs, $0.004$ cycles ($0.29\%$).}}
+\end{frame}
+\colorlet{RuleAccent}{PrColor}
+
+% ---------- 10. E3 saturation ----------
+\colorlet{RuleAccent}{IndColor}
+\begin{frame}{E3: saturation and interpretation}
+  \centering
+  {\large\[
+    B:\ 4 \rightarrow 8 \rightarrow 16
+    \qquad\qquad
+    \text{fill at } \tau = 8:\ 3.17 \rightarrow 3.33 \rightarrow 3.33
+  \]}
+  \vfill
+  \raggedright
+  {\color{IndColor}\bfseries Empirical saturation knee between $B = 4$ and $B = 8$ at $\tau = 8$.}
+  \medskip
+
+  Larger batches \textcolor{IndColor}{improve batch fill}, \textcolor{PrColor}{lower GPU utilization} (0.60 $\rightarrow$ 0.31), but \textcolor{SecColor}{lengthen Q2 waiting} (0.75 $\rightarrow$ 5.39 cycles) and \textcolor{InkColor}{raise end-to-end delay} (4.752 $\rightarrow$ 10.969 cycles); throughput stays within $0.06\%$ of $\lambda$.
+  \medskip
+
+  In the tested grid, $B = 1$ has the lowest end-to-end delay.
+\end{frame}
+\colorlet{RuleAccent}{PrColor}
+
+% ---------- 11. key takeaways ----------
+\colorlet{RuleAccent}{InkColor}
+\begin{frame}{Key takeaways}
+  \begin{enumerate}
+    \item \textbf{\textcolor{PrColor}{Validated simulator.}}\ Single-queue analytical checks within $1\%$ at converged loads; network accounting to $3.4\times 10^{-7}$.
+    \item \textbf{\textcolor{SecColor}{Variability and parallelism shape latency.}}\ Geometric GPU service increases delay strongly at one worker; a second worker largely absorbs it.
+    \item \textbf{\textcolor{IndColor}{Batching trades delay for efficiency.}}\ Larger batches improve utilization but increase waiting; saturation near $B = 8$ for $\tau = 8$; $B = 1$ delays least in the tested grid.
+  \end{enumerate}
+  \vfill
+  {\scriptsize\textcolor{MutedColor}{Limitations: linear feedforward chain; single Bernoulli input; static batching; batch-level service abstraction; two service laws; tick-quantized time; cycle mapping not calibrated. Network-level analytical validation remains open pending course material.}}  \vfill
+  \centering\textbf{Thank you.}
+\end{frame}
+
+\end{document}

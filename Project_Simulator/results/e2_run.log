@@ -1,0 +1,18 @@
+E2 lam=0.05 T=1000000: 4 configs done
+E2 lam=0.1 T=1000000: 4 configs done
+E2 lam=0.15 T=1000000: 4 configs done
+E2 lam=0.2 T=1000000: 4 configs done
+E2 lam=0.25 T=1000000: 4 configs done
+E2 lam=0.3 T=1000000: 4 configs done
+E2 lam=0.35 T=1000000: 4 configs done
+E2 lam=0.4 T=1000000: 4 configs done
+E2 lam=0.45 T=1000000: 4 configs done
+E2 lam=0.49 T=1000000: 4 configs done
+E2 lam=0.3 T=10000000: 4 configs done
+
+E2 written: 44 rows  [116s]
+lam=0.45, 1e6 cycles (paired arrivals; differences are pure Q3):
+  c1-D: W_e2e_sojourn=8.519  Lq_Q3=0.0000  util_Q3=0.9004
+  c2-D: W_e2e_sojourn=8.519  Lq_Q3=0.0000  util_Q3=0.4502
+  c1-Geo: W_e2e_sojourn=15.350  Lq_Q3=3.0761  util_Q3=0.8995
+  c2-Geo: W_e2e_sojourn=8.549  Lq_Q3=0.0142  util_Q3=0.4498

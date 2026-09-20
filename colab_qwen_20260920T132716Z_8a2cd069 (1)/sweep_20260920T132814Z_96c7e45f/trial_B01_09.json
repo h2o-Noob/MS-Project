@@ -1,0 +1,32 @@
+{
+  "batch": {
+    "B": 1,
+    "trial": 9,
+    "wall_time_s": 3.901547669000024,
+    "generated_tokens": "[96]",
+    "total_generated_tokens": 96,
+    "min_generated_tokens": 96,
+    "max_generated_tokens": 96,
+    "request_throughput_req_s": 0.25630854338793774,
+    "token_throughput_tok_s": 24.605620165242023
+  },
+  "sequences": [
+    {
+      "B": 1,
+      "trial": 9,
+      "sequence": 0,
+      "prompt_index": 8,
+      "generated_tokens": 96,
+      "wall_time_s": 3.901547669000024
+    }
+  ],
+  "diagnostics": {
+    "B": 1,
+    "trial": 9,
+    "input_tokens": "[34]",
+    "padded_input_length": 34,
+    "peak_allocated_bytes": 3104600576,
+    "output_width": 96,
+    "completed_utc": "2026-09-20T13:28:49.600897+00:00"
+  }
+}

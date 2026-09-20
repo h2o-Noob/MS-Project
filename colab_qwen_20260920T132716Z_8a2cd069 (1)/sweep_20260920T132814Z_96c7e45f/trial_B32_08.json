@@ -1,0 +1,280 @@
+{
+  "batch": {
+    "B": 32,
+    "trial": 8,
+    "wall_time_s": 3.839861993999989,
+    "generated_tokens": "[96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96]",
+    "total_generated_tokens": 3072,
+    "min_generated_tokens": 96,
+    "max_generated_tokens": 96,
+    "request_throughput_req_s": 8.333632836284712,
+    "token_throughput_tok_s": 800.0287522833324
+  },
+  "sequences": [
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 0,
+      "prompt_index": 24,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 1,
+      "prompt_index": 25,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 2,
+      "prompt_index": 26,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 3,
+      "prompt_index": 27,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 4,
+      "prompt_index": 28,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 5,
+      "prompt_index": 29,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 6,
+      "prompt_index": 30,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 7,
+      "prompt_index": 31,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 8,
+      "prompt_index": 32,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 9,
+      "prompt_index": 33,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 10,
+      "prompt_index": 34,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 11,
+      "prompt_index": 35,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 12,
+      "prompt_index": 36,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 13,
+      "prompt_index": 37,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 14,
+      "prompt_index": 38,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 15,
+      "prompt_index": 39,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 16,
+      "prompt_index": 40,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 17,
+      "prompt_index": 41,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 18,
+      "prompt_index": 42,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 19,
+      "prompt_index": 43,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 20,
+      "prompt_index": 44,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 21,
+      "prompt_index": 45,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 22,
+      "prompt_index": 46,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 23,
+      "prompt_index": 47,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 24,
+      "prompt_index": 48,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 25,
+      "prompt_index": 49,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 26,
+      "prompt_index": 50,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 27,
+      "prompt_index": 51,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 28,
+      "prompt_index": 52,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 29,
+      "prompt_index": 53,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 30,
+      "prompt_index": 54,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    },
+    {
+      "B": 32,
+      "trial": 8,
+      "sequence": 31,
+      "prompt_index": 55,
+      "generated_tokens": 96,
+      "wall_time_s": 3.839861993999989
+    }
+  ],
+  "diagnostics": {
+    "B": 32,
+    "trial": 8,
+    "input_tokens": "[34, 35, 34, 34, 37, 36, 33, 34, 34, 34, 35, 35, 38, 33, 33, 33, 35, 35, 34, 34, 35, 35, 34, 36, 36, 36, 34, 33, 34, 34, 34, 35]",
+    "padded_input_length": 38,
+    "peak_allocated_bytes": 3287277568,
+    "output_width": 96,
+    "completed_utc": "2026-09-20T13:32:05.899300+00:00"
+  }
+}

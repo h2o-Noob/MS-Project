@@ -1,0 +1,40 @@
+{
+  "batch": {
+    "B": 2,
+    "trial": 8,
+    "wall_time_s": 3.6662189500000295,
+    "generated_tokens": "[96, 96]",
+    "total_generated_tokens": 192,
+    "min_generated_tokens": 96,
+    "max_generated_tokens": 96,
+    "request_throughput_req_s": 0.5455211560673385,
+    "token_throughput_tok_s": 52.3700309824645
+  },
+  "sequences": [
+    {
+      "B": 2,
+      "trial": 8,
+      "sequence": 0,
+      "prompt_index": 14,
+      "generated_tokens": 96,
+      "wall_time_s": 3.6662189500000295
+    },
+    {
+      "B": 2,
+      "trial": 8,
+      "sequence": 1,
+      "prompt_index": 15,
+      "generated_tokens": 96,
+      "wall_time_s": 3.6662189500000295
+    }
+  ],
+  "diagnostics": {
+    "B": 2,
+    "trial": 8,
+    "input_tokens": "[33, 33]",
+    "padded_input_length": 33,
+    "peak_allocated_bytes": 3112091648,
+    "output_width": 96,
+    "completed_utc": "2026-09-20T13:29:23.950633+00:00"
+  }
+}

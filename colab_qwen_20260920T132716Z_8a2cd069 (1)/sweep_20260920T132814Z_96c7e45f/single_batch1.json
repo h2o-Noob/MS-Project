@@ -1,0 +1,7 @@
+{
+  "wall_time_s": 3.328200921999951,
+  "generated_tokens": 87,
+  "generation_wall_ms_per_output_token": 38.255183011493685,
+  "output_tokens_per_s": 26.140248752686716,
+  "note": "One auxiliary observation; includes prefill and generation overhead, not decode-step timing"
+}

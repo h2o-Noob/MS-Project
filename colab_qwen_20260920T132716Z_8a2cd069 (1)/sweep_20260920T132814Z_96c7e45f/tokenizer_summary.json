@@ -1,0 +1,8 @@
+{
+  "n": 20,
+  "mean_ms": 0.20557894999342352,
+  "min_ms": 0.0681870000107665,
+  "max_ms": 1.3689920000388156,
+  "sample_sd_ms": 0.2834411378087885,
+  "scope": "raw prompt 0; CPU tokenizer only"
+}

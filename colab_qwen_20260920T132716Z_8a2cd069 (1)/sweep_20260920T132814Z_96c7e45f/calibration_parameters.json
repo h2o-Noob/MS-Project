@@ -1,0 +1,17 @@
+{
+  "model": "T_seconds = a * B**alpha",
+  "a": 4.030080933788388,
+  "alpha": 0.0010438165540520834,
+  "calibration_sizes": [
+    1,
+    4,
+    16
+  ],
+  "held_out_sizes": [
+    2,
+    8,
+    32
+  ],
+  "fit": "OLS log mean time vs log B; only calibration sizes",
+  "cycle_ms": null
+}

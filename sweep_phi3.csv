@@ -1,0 +1,78 @@
+model,workload,B,trial,wall_time_s,max_prompt_tokens,max_len,mean_len,min_len,total_tokens,n_hit_cap,peak_mem_gb,lengths_json,do_sample,status
+microsoft/Phi-3-mini-4k-instruct,short_qa,1,1,3.1233,7,83,83.0,83,83,0,7.69,[83],False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,1,2,6.4108,11,172,172.0,172,172,0,7.77,[172],False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,1,3,5.2516,7,140,140.0,140,140,0,7.71,[140],False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,1,4,9.2262,10,243,243.0,243,243,0,7.77,[243],False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,1,5,3.8876,8,104,104.0,104,104,0,7.7,[104],False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,2,1,5.9876,10,141,135.5,130,271,0,7.78,"[141, 130]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,2,2,12.4638,13,299,201.5,104,403,0,7.9,"[104, 299]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,2,3,8.855,9,204,172.0,140,344,0,7.82,"[140, 204]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,2,4,5.4509,10,132,126.0,120,252,0,7.77,"[132, 120]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,2,5,13.1822,9,314,278.0,242,556,0,7.91,"[314, 242]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,4,1,10.2845,11,234,163.5,102,654,0,8.05,"[146, 234, 172, 102]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,4,2,24.5956,10,512,267.0,83,1068,1,8.5,"[360, 83, 113, 512]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,4,3,9.2722,16,206,135.25,103,541,0,8.01,"[103, 119, 113, 206]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,4,4,9.2509,9,206,134.75,71,539,0,8.0,"[144, 71, 206, 118]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,4,5,11.4562,10,255,174.5,98,698,0,8.08,"[103, 255, 98, 242]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,8,1,20.3097,11,384,164.5,114,1316,0,8.93,"[152, 114, 146, 125, 117, 131, 384, 147]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,8,2,18.8526,16,360,178.12,96,1425,0,8.88,"[360, 96, 175, 138, 206, 130, 114, 206]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,8,3,24.7357,9,449,255.0,100,2040,0,9.17,"[109, 308, 119, 100, 304, 449, 288, 363]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,8,4,29.2335,10,512,171.5,87,1372,1,9.34,"[512, 113, 192, 103, 134, 87, 135, 96]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,8,5,16.0899,13,314,201.88,124,1615,0,8.73,"[140, 124, 151, 138, 303, 284, 161, 314]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,16,1,33.8458,16,449,201.94,87,3231,0,10.7,"[132, 188, 112, 127, 117, 214, 87, 433, 449, 378, 113, 384, 109, 152, 102, 134]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,16,2,31.951,10,433,183.31,100,2933,0,10.56,"[135, 120, 149, 138, 126, 380, 100, 112, 114, 107, 433, 284, 132, 102, 384, 117]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,16,3,40.3459,11,512,224.88,87,3598,1,11.04,"[256, 214, 87, 146, 333, 255, 294, 512, 96, 315, 120, 304, 180, 202, 112, 172]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,16,4,27.0879,13,384,202.69,100,3243,0,10.28,"[333, 164, 124, 131, 126, 161, 100, 130, 384, 202, 137, 284, 214, 321, 144, 288]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,16,5,26.5137,11,380,152.31,71,2437,0,10.18,"[124, 152, 134, 126, 96, 71, 132, 148, 202, 114, 142, 206, 380, 141, 131, 138]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,32,1,65.0945,13,512,205.75,96,6584,2,14.46,"[113, 284, 109, 109, 131, 360, 161, 315, 104, 134, 512, 105, 96, 449, 112, 161, 512, 256, 117, 124, 103, 96, 137, 255, 363, 174, 134, 114, 317, 138, 369, 120]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,32,2,65.2613,14,512,206.5,104,6608,1,14.47,"[214, 134, 144, 148, 132, 135, 384, 109, 382, 162, 140, 134, 314, 242, 131, 213, 172, 333, 107, 164, 139, 309, 369, 120, 433, 204, 104, 125, 120, 512, 147, 132]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,32,3,46.3402,16,408,150.41,71,4813,0,13.19,"[114, 255, 100, 213, 124, 138, 110, 71, 137, 147, 135, 131, 132, 130, 114, 206, 113, 284, 132, 104, 134, 148, 85, 132, 105, 408, 108, 118, 194, 109, 180, 202]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,32,4,64.8538,11,512,186.12,71,5956,3,14.44,"[130, 140, 384, 83, 134, 242, 134, 284, 71, 512, 108, 161, 137, 109, 78, 202, 117, 194, 87, 512, 132, 104, 172, 138, 512, 120, 113, 204, 125, 104, 119, 294]",False,ok
+microsoft/Phi-3-mini-4k-instruct,short_qa,32,5,64.9155,11,512,194.94,78,6238,2,14.44,"[360, 126, 87, 139, 206, 106, 427, 132, 104, 109, 113, 255, 107, 172, 104, 512, 102, 124, 234, 96, 120, 288, 408, 134, 294, 140, 127, 100, 512, 78, 108, 314]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,1,1,6.6154,579,149,149.0,149,149,0,7.95,[149],False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,1,2,7.3111,603,165,165.0,165,165,0,7.96,[165],False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,1,3,6.4792,602,146,146.0,146,146,0,7.95,[146],False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,1,4,3.6053,201,86,86.0,86,86,0,7.77,[86],False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,1,5,4.0726,192,99,99.0,99,99,0,7.77,[99],False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,2,1,5.9619,603,111,104.0,97,208,0,8.24,"[111, 97]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,2,2,9.7347,603,187,170.0,153,340,0,8.29,"[153, 187]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,2,3,7.1293,603,138,130.0,122,260,0,8.25,"[138, 122]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,2,4,8.736,603,167,144.5,122,289,0,8.27,"[122, 167]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,2,5,6.1247,603,114,110.0,106,220,0,8.24,"[114, 106]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,4,1,12.2746,603,187,145.75,97,583,0,8.93,"[132, 167, 187, 97]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,4,2,13.2967,603,203,143.0,81,572,0,8.97,"[81, 101, 203, 187]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,4,3,11.7545,603,178,150.5,122,602,0,8.92,"[171, 178, 131, 122]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,4,4,11.6147,603,176,145.75,114,583,0,8.91,"[176, 165, 128, 114]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,4,5,12.037,603,182,129.5,97,518,0,8.92,"[128, 111, 182, 97]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,8,1,18.1508,603,192,152.88,107,1223,0,10.23,"[186, 192, 147, 140, 107, 160, 167, 124]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,8,2,18.1783,603,192,144.0,83,1152,0,10.23,"[151, 178, 192, 83, 133, 178, 106, 131]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,8,3,17.8507,603,190,144.38,81,1155,0,10.22,"[124, 180, 124, 178, 81, 113, 165, 190]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,8,4,16.8011,603,178,137.0,105,1096,0,10.18,"[146, 134, 124, 163, 138, 108, 105, 178]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,8,5,15.442,603,163,126.62,72,1013,0,10.13,"[138, 135, 72, 163, 160, 106, 113, 126]",False,ok
+microsoft/Phi-3-mini-4k-instruct,summarize,16,1,,603,,,,,,12.92,,False,oom
+microsoft/Phi-3-mini-4k-instruct,code,1,1,6.5192,140,161,161.0,161,161,0,7.78,[161],False,ok
+microsoft/Phi-3-mini-4k-instruct,code,1,2,13.8526,197,339,339.0,339,339,0,7.87,[339],False,ok
+microsoft/Phi-3-mini-4k-instruct,code,1,3,13.7294,112,337,337.0,337,337,0,7.83,[337],False,ok
+microsoft/Phi-3-mini-4k-instruct,code,1,4,15.7657,147,385,385.0,385,385,0,7.87,[385],False,ok
+microsoft/Phi-3-mini-4k-instruct,code,1,5,15.2624,149,373,373.0,373,373,0,7.86,[373],False,ok
+microsoft/Phi-3-mini-4k-instruct,code,2,1,18.5084,174,408,363.0,318,726,0,8.12,"[408, 318]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,2,2,10.5529,107,242,240.0,238,480,0,7.93,"[238, 242]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,2,3,16.8846,192,371,357.0,343,714,0,8.11,"[343, 371]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,2,4,12.508,115,283,238.0,193,476,0,7.97,"[193, 283]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,2,5,13.6984,132,309,260.0,211,520,0,8.01,"[211, 309]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,4,1,27.5337,311,484,396.5,282,1586,0,8.94,"[484, 415, 282, 405]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,4,2,23.9868,235,443,337.25,246,1349,0,8.76,"[443, 246, 317, 343]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,4,3,11.6497,191,231,201.25,172,805,0,8.34,"[231, 174, 228, 172]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,4,4,27.0465,238,494,358.25,264,1433,0,8.88,"[494, 349, 264, 326]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,4,5,18.7475,149,371,254.75,141,1019,0,8.49,"[371, 230, 277, 141]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,8,1,40.429,345,512,310.25,225,2482,1,10.43,"[228, 294, 263, 391, 225, 283, 512, 286]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,8,2,35.043,186,512,315.0,232,2520,1,9.91,"[356, 373, 250, 232, 238, 242, 512, 317]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,8,3,40.0433,372,502,351.0,242,2808,0,10.48,"[277, 293, 502, 337, 299, 385, 473, 242]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,8,4,40.9803,372,512,324.38,223,2595,1,10.54,"[298, 227, 228, 473, 318, 512, 316, 223]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,8,5,32.3984,279,447,316.88,174,2535,0,10.0,"[246, 286, 385, 239, 174, 367, 391, 447]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,16,1,58.2443,270,512,341.31,203,5461,1,12.77,"[307, 369, 214, 221, 405, 203, 248, 512, 408, 345, 301, 445, 370, 405, 352, 356]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,16,2,63.5191,345,512,317.19,152,5075,1,13.21,"[222, 276, 477, 428, 161, 228, 157, 512, 277, 439, 152, 426, 405, 316, 232, 367]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,16,3,50.6477,195,493,267.56,141,4281,0,12.11,"[229, 219, 337, 141, 174, 349, 371, 311, 300, 246, 233, 493, 178, 355, 152, 193]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,16,4,52.9465,191,512,286.62,126,4586,1,12.22,"[512, 293, 318, 126, 161, 264, 222, 318, 294, 307, 193, 326, 419, 309, 247, 277]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,16,5,66.0108,372,512,292.12,120,4674,1,13.38,"[232, 343, 241, 326, 473, 172, 408, 512, 120, 318, 228, 234, 367, 246, 293, 161]",False,ok
+microsoft/Phi-3-mini-4k-instruct,code,32,1,,311,,,,,,13.07,,False,oom
